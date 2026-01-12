@@ -1,0 +1,14 @@
+[build]
+  command = "pnpm install --frozen-lockfile && pnpm run build"
+  publish = ".next"
+  functions = ".netlify/functions"
+
+[[plugins]]
+  package = "@netlify/next"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = [
+    "@supabase/supabase-js",
+    "@supabase/ssr"
+  ]
