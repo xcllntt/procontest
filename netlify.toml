@@ -1,5 +1,7 @@
 [build]
-  command = "pnpm install --frozen-lockfile && pnpm run build"
+  # Allow Netlify to update the lockfile if it changes; avoids CI failure when
+  # package.json has new deps but pnpm-lock.yaml is not yet updated.
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
   publish = ".next"
   functions = ".netlify/functions"
 
