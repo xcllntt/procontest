@@ -5,6 +5,11 @@
   publish = ".next"
   functions = ".netlify/functions"
 
+[build.environment]
+  # Netlify forces frozen-lockfile in CI; explicitly disable so install can
+  # proceed even if pnpm-lock.yaml isn't yet regenerated.
+  PNPM_CONFIG_FROZEN_LOCKFILE = "false"
+
 [[plugins]]
   package = "@netlify/next"
 
